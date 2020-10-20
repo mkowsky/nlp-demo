@@ -1,0 +1,33 @@
+<div id="container">
+  <div id="hello">Hello from nlp-angular-demo</div>
+  <div><a [routerLink]="['/test1']">TEST1-ROUTE</a></div>
+
+
+  <div id="searchWrapper">
+    <div id="title">Search for any movie</div>
+    <input #search id="searchInput" type="search" autocomplete="off">
+    <button id="searchButton" (click)="searchForMovie(search.value)">SEARCH</button>
+    <button id="apiTEST" (click)="test()">API TEST</button>
+  </div>
+
+
+
+  <div class="gridWrapper" *ngIf="flaga">
+    <div *ngFor="let movie of movies">
+      <div class="gridItem"> <img  src="{{movie.Poster}}" class="grid-item-img"></div>
+    </div>
+  </div>
+
+
+
+      <!--<div class="gridItem">1</div>-->
+      <!--<div class="gridItem">2</div>-->
+      <!--<div class="gridItem">3</div>-->
+      <!--<div class="gridItem">4</div>-->
+
+
+
+
+  <router-outlet></router-outlet>
+</div>
+
