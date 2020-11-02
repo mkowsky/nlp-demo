@@ -27,8 +27,9 @@ public class ExamplePath {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public User findAll() {
+    public Iterable<User> findAll() {
         System.out.println("inside find all");
-        return userRepository.findUserByUsername("user03");
+        //return userRepository.findUserByUsername("user03");
+        return userRepository.findAll();
     }
 }
