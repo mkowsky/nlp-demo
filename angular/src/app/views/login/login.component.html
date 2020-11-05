@@ -1,23 +1,74 @@
-<div class="cont">
+<!--<div class="cont">-->
 
 
-  <div class="login-box">
+<!--<div class="login-box">-->
 
-    <div class="login-box-title">LOGIN</div>
+<!--<div class="login-box-title">LOGIN</div>-->
 
-    <div class="input-wrapper">
-      <input type="text" placeholder="LOGIN" class="login-input">
+<!--<div class="input-wrapper">-->
+<!--<input type="text" placeholder="LOGIN" class="login-input" [(ngModel)]="username" (ngModelChange)="valueHasChanged()">-->
+<!--</div>-->
+
+<!--<div class="input-wrapper">-->
+<!--<input type="password" placeholder="PASSWORD" class="login-input" [(ngModel)]="password" (ngModelChange)="valueHasChanged()">-->
+<!--</div>-->
+
+
+<!--<button class="login-button" (click)="testQuarkusRESTAPI()" [disabled]="loginButtonDisabled">CONFIRM</button>-->
+
+
+<!--</div>-->
+
+<!--</div>-->
+
+<body>
+<div class="session" id="session" [@slideInOut]="animationState" >
+  <div class="left">
+</div>
+
+<div class="login-title-wrapper">
+  <h4>WE ARE<span> NLP-DEMO</span></h4>
+</div>
+
+
+
+  <div class="login-form-wrapper">
+
+
+    <div class="floating-label">
+      <div class="error" *ngIf="allFieldsFilled">{{usernameError}}</div>
+      <div style="display: inline-flex">
+        <input placeholder="Email"
+               id="username"
+               class="login-input"
+               autocomplete="off"
+               [(ngModel)]="username"
+               (ngModelChange)="valueHasChanged()"
+        >
+        <label for="username">Email</label>
+        <fa-icon [icon]="mail" class="fa-2x icon"></fa-icon>
+      </div>
+
     </div>
 
-    <div class="input-wrapper">
-      <input type="password" placeholder="PASSWORD" class="login-input">
+    <div class="floating-label">
+      <div class="error" *ngIf="allFieldsFilled">{{passwordError}}</div>
+        <input placeholder="Password"
+               id="password"
+               class="login-input"
+               type="password"
+               [(ngModel)]="password"
+               (ngModelChange)="valueHasChanged()">
+        <label for="password">Password</label>
+        <fa-icon [icon]="faLock" class="fa-2x icon"></fa-icon>
     </div>
-
-
-      <button class="login-button">CONFIRM</button>
-
-
-
   </div>
 
+
+  <button class="login-button" (click)="testQuarkusRESTAPI()" [disabled]="loginButtonDisabled">LOG IN</button>
+
+  <div class="to-register" (click)="toggleShowDiv('session')">Not registred? <span>Create an account</span></div>
 </div>
+
+
+</body>

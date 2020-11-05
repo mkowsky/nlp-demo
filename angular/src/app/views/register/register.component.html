@@ -1,0 +1,68 @@
+<body>
+<div class="session" id="session" [@slideInOut]="animationState" >
+  <div class="left">
+  </div>
+
+  <div class="login-title-wrapper">
+    <h4>NLP<span> REGISTER</span></h4>
+  </div>
+
+
+
+  <div class="login-form-wrapper">
+
+
+    <div class="floating-label">
+      <div class="error" *ngIf="allFieldsFilled">{{emailError}}</div>
+      <div style="display: inline-flex">
+        <input placeholder="Email"
+               id="email"
+               class="login-input"
+               autocomplete="off"
+               [(ngModel)]="email"
+               (ngModelChange)="valueHasChanged()">
+        <label for="email">Email</label>
+        <fa-icon [icon]="mail" class="fa-2x icon"></fa-icon>
+      </div>
+    </div>
+
+    <div class="floating-label">
+      <div class="error" *ngIf="allFieldsFilled">{{passwordError}}</div>
+      <input placeholder="Password"
+             id="password"
+             class="login-input"
+             autocomplete="off"
+             type="password"
+             [(ngModel)]="password"
+             (ngModelChange)="valueHasChanged()">
+      <label for="password">Password</label>
+      <fa-icon [icon]="faLock" class="fa-2x icon"></fa-icon>
+    </div>
+
+    <div class="floating-label">
+      <div class="error" *ngIf="allFieldsFilled">{{repeatPasswordError}}</div>
+      <div style="display: inline-flex">
+        <input placeholder="Repeat password"
+               id="repeatPassword"
+               class="login-input"
+               autocomplete="off"
+               type="password"
+               [(ngModel)]="repeatPassword"
+               (ngModelChange)="valueHasChanged()">
+        <label for="repeatPassword">Repeat password</label>
+        <fa-icon [icon]="key" class="fa-2x icon"></fa-icon>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+  <button class="login-button" (click)="startRegisterProcess()" [disabled]="signUpButtonDisabled">SIGN UP</button>
+
+  <div class="to-register" (click)="toggleShowDiv('session')">Already have an account? <span>Log in</span></div>
+</div>
+
+
+</body>

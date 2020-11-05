@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {KeycloakService} from 'keycloak-angular';
+
 
 @Component({
   selector: 'app-test1',
@@ -7,21 +7,11 @@ import {KeycloakService} from 'keycloak-angular';
   styleUrls: ['./test1.component.css']
 })
 export class Test1Component implements OnInit {
-
-  user = '';
-
-  constructor(private keyCloackService: KeycloakService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.initializeUserOptions();
+
   }
 
-  private initializeUserOptions(): void{
-    this.user = this.keyCloackService.getUsername();
-  }
-
-  logout(): void{
-    this.keyCloackService.logout();
-  }
 
 }

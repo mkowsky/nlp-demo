@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {APP_INITIALIZER, NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -7,8 +8,13 @@ import { AppComponent } from './app.component';
 import {Test1Component} from './components/test1/test1.component';
 import {AppRoutingModule} from './app-routing.module';
 import { LoginComponent } from './views/login/login.component';
-import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
-import {initializeKeycloak} from './utility/app.init';
+import { HomeComponent } from './views/home/home.component';
+import {AuthGuardService} from './services/auth-guard.service';
+import {JwtHelperService, JwtModule} from '@auth0/angular-jwt';
+import {AuthService} from './services/auth.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { RegisterComponent } from './views/register/register.component';
 
 
 
@@ -16,21 +22,25 @@ import {initializeKeycloak} from './utility/app.init';
   declarations: [
     AppComponent,
     Test1Component,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
-    KeycloakAngularModule
-  ],
-  providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializeKeycloak,
-      multi: true,
-      deps: [KeycloakService],
-    },
-  ],
+    FormsModule,
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return '';
+        }
+      }
+    })],
+  providers: [AuthService, AuthGuardService, JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
