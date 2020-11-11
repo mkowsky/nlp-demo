@@ -1,2 +1,31 @@
-<p>home works!</p>
-<button (click)="logout()">LOGOUT</button>
+<body>
+
+
+<div>
+  <app-header (open)="logout()"></app-header>
+</div>
+
+
+
+<div id="searchWrapper" *ngIf="flagaRecenzja">
+  <div id="title">Search for movie</div>
+  <input #search id="searchInput" type="search" autocomplete="off">
+  <button id="searchButton" (click)="searchForMovie(search.value)">SEARCH</button>
+  <button id="cancelbutton" type="button" (click)="cancel()" style="position: absolute">CANCEL</button>
+  <button  type="button" (click)="test()" style="position: relative">test</button>
+</div>
+
+<div id="recensionWrapper" *ngIf="!flagaRecenzja">
+  <div id="recensionTitle">Write down your recension for movie:<br> {{currentMovie.Title}}</div>
+  <textarea #recension id="recensionInput"></textarea>
+  <button (click)="submitRecension(recension.value)" class="recension-button">SUBMIT</button>
+</div>
+
+
+<div class="gridWrapper" *ngIf="flaga">
+  <div *ngFor="let movie of movies">
+    <div class="gridItem"> <img  src="{{movie.Poster}}" class="grid-item-img" (click)="gridItemClicked(movie.imdbID)"></div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+</body>

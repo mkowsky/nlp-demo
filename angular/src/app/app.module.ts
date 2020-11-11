@@ -15,6 +15,8 @@ import {AuthService} from './services/auth.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RegisterComponent } from './views/register/register.component';
+import { HeaderComponent } from './components/header/header.component';
+
 
 
 
@@ -24,7 +26,8 @@ import { RegisterComponent } from './views/register/register.component';
     Test1Component,
     LoginComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    HeaderComponent,
   ],
   imports: [
     AppRoutingModule,
