@@ -1,3 +1,9 @@
+$primary: #ac4a54;
+$accent: #1e3340;
+$accent2: #243755;
+$background: #4a5c6c;
+
+
 body, html {
   height: 100vh;
   width: 100vw;
@@ -6,61 +12,80 @@ body, html {
 
 }
 
+.section-container {
+  min-height: 60vh;
+
+}
+
 #searchWrapper {
 
   position: relative;
+  top: 20%;
   left: 50%;
   transform: translateX(-50%);
-  background: black;
+  background: $primary;
   opacity: 0.8;
-  width: 1000px;
+  border-radius: 55px;
+  width: 800px;
   height: 250px;
-  text-align: center;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 #title {
-  position: relative;
-  top: 20%;
+
   font-size: 40px;
-  color: lightpink;
-  letter-spacing: 2px;
-  font-family: Roboto;
+  color: white;
+  letter-spacing: 4px;
 }
 
 #searchInput {
-  position: relative;
-  top: 30%;
+
+  border-radius: 25px;
+  outline: none;
+  padding: 15px;
   height: 40px;
   width: 500px;
-  padding: 10px;
+  background: black;
+  color: white;
   font-size: 22px;
 
 }
 
 #searchButton {
-  position: relative;
-  top: 30%;
-  left: 1%;
+  border-radius: 25px;
   height: 40px;
-  width: 100px;
+  width: auto;
+  padding: 0 60px 0 60px;
+  background: white;
+  letter-spacing: 2px;
 }
 
-#apiTEST {
-  position: relative;
+
+.wrapperForGridWrapper{
+  width: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  max-height: 90vh;
 }
-
-
-#hello {
-  font-size: 48px;
+fa-icon{
+  cursor: pointer;
+  font-size: 40px;
+  left: 90%;
+  top: 10%;
+  position: absolute;
+  color: white;
+  &:hover{
+    color: crimson;
+  }
 }
 
 .gridWrapper {
-  position: relative;
-  top: 10%;
-  left: 15%;
-  width: 100%;
-  height: 100%;
+  margin-top: 20px;
+  overflow: hidden;
   display: grid;
   grid-template-columns: 240px 240px 240px 240px 240px;
   grid-template-rows: 390px 390px 390px 390px 390px;
@@ -70,7 +95,7 @@ body, html {
 
 .gridItem {
 
-  background: crimson;
+  background: $primary;
   padding: 5px;
   width: 100%;
   height: 100%;
@@ -80,43 +105,102 @@ body, html {
 
   width: 100%;
   height: 100%;
-}
-#recensionTitle{
-  position: relative;
 
-  font-size: 40px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#recensionTitle {
+  position: relative;
+  font-size: 30px;
   color: lightpink;
   letter-spacing: 2px;
   font-family: Roboto;
 }
 
 .recension-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 75%;
+
   font-size: 20px;
   letter-spacing: 3px;
   width: 160px;
   height: 40px;
   border-radius: 25px;
-  &:hover{
+
+  &:hover {
     background: lightpink;
   }
 }
-#recensionWrapper{
+
+#recensionWrapper {
   position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 11vh;
+  left: 1%;
+
   background: black;
   opacity: 0.8;
-  width: 1000px;
-  height: 350px;
+  width: 400px;
+  height: 250px;
   text-align: center;
 }
-#recensionInput{
+
+#recensionInput {
   width: 400px;
   height: 200px;
   padding: 10px;
+}
+
+.movie-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: whitesmoke;
+  display: flex;
+  flex-direction: column;
+}
+.movie-details{
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+.movie-details ul {
+  list-style: none;
+}
+.movie-details li {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.movie-comments{
+  width: 100%;
+
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+
+}
+.movie-comments-title{
+  align-self: center;
+  color: black;
+  font-size: 46px;
+  margin-right: 120px;
+}
+.reviews-wrapper{
+  align-self: center;
+
+}
+.user-review{
+  padding: 30px;
+  margin-bottom: 30px;
+}
+.selfmade-review{
+  align-self: center;
+}
+.review{
+  position: relative;
+  width: 1200px;
+  background: black;
+  height: 400px;
 }

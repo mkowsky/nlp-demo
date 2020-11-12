@@ -1,4 +1,4 @@
-<body>
+<body id="body">
 
 
 <div>
@@ -6,26 +6,58 @@
 </div>
 
 
-
-<div id="searchWrapper" *ngIf="flagaRecenzja">
+<div id="searchWrapper" *ngIf="searchWrapperVisible">
   <div id="title">Search for movie</div>
   <input #search id="searchInput" type="search" autocomplete="off">
   <button id="searchButton" (click)="searchForMovie(search.value)">SEARCH</button>
-  <button id="cancelbutton" type="button" (click)="cancel()" style="position: absolute">CANCEL</button>
-  <button  type="button" (click)="test()" style="position: relative">test</button>
 </div>
 
-<div id="recensionWrapper" *ngIf="!flagaRecenzja">
-  <div id="recensionTitle">Write down your recension for movie:<br> {{currentMovie.Title}}</div>
-  <textarea #recension id="recensionInput"></textarea>
-  <button (click)="submitRecension(recension.value)" class="recension-button">SUBMIT</button>
-</div>
-
-
-<div class="gridWrapper" *ngIf="flaga">
-  <div *ngFor="let movie of movies">
-    <div class="gridItem"> <img  src="{{movie.Poster}}" class="grid-item-img" (click)="gridItemClicked(movie.imdbID)"></div>
+<div class="wrapperForGridWrapper" *ngIf="gridVisible">
+  <fa-icon [icon]="faWindowClose" (click)="closeGrid()"></fa-icon>
+  <div class="gridWrapper">
+    <div *ngFor="let movie of movies">
+      <div class="gridItem"><img src="{{movie.Poster}}" class="grid-item-img" (click)="gridItemClicked(movie.imdbID)">
+      </div>
+    </div>
   </div>
 </div>
-<router-outlet></router-outlet>
+
+<mat-spinner *ngIf="isLoading" style="position: absolute; left: 50%; top: 30%;"></mat-spinner>
+
+<div id="movieContent" class="movie-content" *ngIf="movieContentVisible">
+
+  <div class="movie-details">
+    <img
+      src="{{currentMovie.Poster}}"
+      style="position: relative; width: 280px;">
+    <ul>
+      <li>{{currentFilmBaseInfo.title}}</li>
+      <li>{{currentFilmBaseInfo.year}}</li>
+
+    </ul>
+  </div>
+
+  <div class="movie-comments">
+    <div class="movie-comments-title">User reviews
+      <button (click)="showComments()">show/hide</button>
+    </div>
+    <div *ngIf="commentsVisible" class="reviews-wrapper">
+      <app-review *ngFor="let review of userReviews" class="user-review" [reviewContent]="review.reviewText"
+                  [reviewRating]="review.authorRating" [reviewTitle]="review.reviewTitle"
+      ></app-review>
+    </div>
+    <!--<app-review class="user-review" [reviewTitle]="'tytul komentarza'" [reviewContent]="testContent" [reviewRating]="5"></app-review>-->
+
+  </div>
+
+</div>
+
+
+<div id="recensionWrapper" *ngIf="!flagaRecenzja">
+  <div id="recensionTitle">Write down your recension</div>
+  <textarea #recension id="recensionInput"></textarea>
+  <button (click)="submitRecension(recension.value); recension.value=''" class="recension-button">SUBMIT</button>
+</div>
+
+
 </body>
