@@ -1,0 +1,119 @@
+
+.movie-details-container{
+  width: 1000px;
+  height: 500px;
+  background: black;
+  display: flex;
+  border-radius: 20px;
+  box-shadow: 0 0 20px black;
+
+
+}
+
+
+img{
+  border-radius: 20px;
+  width: 40%;
+  height: 100%;
+  object-fit: cover;
+  margin-right: 5vh;
+
+
+}
+.xd{
+
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+
+.movie-details-content-wrapper{
+  padding: 20px;
+  //align-self: flex-end;
+  align-self: center;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+
+
+
+
+
+
+
+
+}
+
+.movie-details-title{
+  color: white;
+  letter-spacing: 2px;
+  font-size: 50px;
+
+
+}
+
+.movie-details-basic-info-header{
+  max-width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
+  font-size: 18px;
+  opacity: 0.5;
+
+
+}
+
+
+.movie-details-rating{
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: white;
+
+
+}
+.movie-details-description{
+  color: white;
+  font-weight: 100;
+  margin-bottom: auto;
+  max-width: 90%;
+
+
+}
+.movie-details-readmore{
+  background: transparent;
+  border: 2px solid white;
+  width: 150px;
+  text-align: center;
+  font-size: 12px;
+  padding: 10px;
+height: auto;
+  color: white;
+
+  font-weight: 100;
+  cursor: pointer;
+
+  &:hover{
+    background: lightpink;
+  }
+}
+
+.star {
+  position: relative;
+  display: inline-block;
+  color: white;
+}
+.full {
+  color: gold;
+}
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  color: gold;
+}
+.read-more{
+  color: gold;
+  cursor: pointer;
+}

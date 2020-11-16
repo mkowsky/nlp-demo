@@ -1,0 +1,42 @@
+<div class="movie-details-container">
+
+  <img [src]="moviePoster">
+  <div class="xd">
+    <div class="movie-details-content-wrapper">
+      <div class="movie-details-title">{{movieTitle}}</div>
+
+      <div class="movie-details-basic-info-header">
+        <div>{{movieProductionDate}}</div>
+        <div>{{movieLength}}</div>
+        <div>{{movieType}}</div>
+      </div>
+
+      <div class="movie-details-rating"><ng-template #t let-fill="fill">
+  <span class="star" [class.full]="fill === 100">
+    <span class="half" [style.width.%]="fill">&#x2605;</span>	&#x2605;
+  </span>
+      </ng-template>
+        <ngb-rating [(rate)]="movieRating" [starTemplate]="t" [readonly]="true"></ngb-rating>
+        <span style="margin-left: 10px; font-weight: 100; font-size: 26px;">{{movieRating}}</span>
+      </div>
+
+
+      <div class="movie-details-description">
+        <mat-expansion-panel hideToggle  style=" background-color: transparent;" disabled="true" expanded="false">
+          <mat-expansion-panel-header  style="height: 100%; color: white; padding: 0; font-weight: 100;">
+            {{shortDescription}}
+          </mat-expansion-panel-header>
+          {{movieDescription}}
+        </mat-expansion-panel>
+      </div>
+
+      <div (click)="expandPanel()" class="read-more">READ MORE</div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+

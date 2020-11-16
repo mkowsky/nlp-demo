@@ -1,42 +1,29 @@
-$primary: #ac4a54;
-$accent: #1e3340;
-$accent2: #243755;
-$background: #4a5c6c;
+
 
 .review-container{
-  width: 1200px;
-  background: lightgray;
-  opacity: 0.8;
   height: auto;
-  display: flex;
-  padding: 15px;
-  flex-direction: column;
-
 }
 
-.review-header{
-  width: 100%;
-  height: 5vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 
-}
-.review-user{
 
-}
 
 .review-title{
   color: black;
-  font-size: 28px;
+  font-size: 18px;
 }
 
-.review-rating{
-color: black;
-  font-size: 20px;
+.review-description{
+  font-size: 24px;
 }
+
 
 .review-content{
 
   font-size: 17px;
+}
+.add-button{
+  width: 100px;
+}
+.delete-button{
+  width: 100px;
 }

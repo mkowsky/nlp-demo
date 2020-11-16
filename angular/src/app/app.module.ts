@@ -18,7 +18,13 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RegisterComponent } from './views/register/register.component';
 import { HeaderComponent } from './components/header/header.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { ReviewComponent } from './components/review/review.component';
+
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import {NgbRatingModule} from '@ng-bootstrap/ng-bootstrap';
+import { MovieCommentsComponent } from './components/movie-comments/movie-comments.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 
@@ -31,6 +37,9 @@ import { ReviewComponent } from './components/review/review.component';
     RegisterComponent,
     HeaderComponent,
     ReviewComponent,
+    MovieDetailsComponent,
+    MovieCommentsComponent,
+
   ],
   imports: [
     AppRoutingModule,
@@ -39,6 +48,10 @@ import { ReviewComponent } from './components/review/review.component';
     FontAwesomeModule,
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
+    MatExpansionModule,
+    NgbRatingModule,
+    MatPaginatorModule,
+
 
 
     JwtModule.forRoot({

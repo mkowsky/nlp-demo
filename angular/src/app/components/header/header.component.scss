@@ -1,7 +1,5 @@
-$primary: #ac4a54;
-$accent: #1e3340;
-$accent2: #243755;
-$background: #4a5c6c;
+$primary: black;
+
 
 *{
   box-sizing: border-box;
@@ -26,8 +24,8 @@ $background: #4a5c6c;
 .nav li {
   display: inline-block;
   padding: 0 30px;
-  font-weight: 600;
-  color: $accent2;
+
+  color: white;
 }
 
 .logo-container{
@@ -38,7 +36,7 @@ $background: #4a5c6c;
 .logo {
   font-size: 36px;
   font-weight: 400;
-  color: $accent2;
+  color: white;
   span{
     font-weight: 600;
     color: white;
@@ -55,7 +53,7 @@ $background: #4a5c6c;
   border: none;
 
   &:hover{
-    background: $accent;
+    background: lightpink;
     cursor: pointer;
   }
 }
@@ -67,7 +65,7 @@ $background: #4a5c6c;
 }
 .h4 {
   font-size: 16px;
-  color: $accent;
+  color: white;
   text-align: center;
   span {
 
