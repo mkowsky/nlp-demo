@@ -1,0 +1,60 @@
+<body id="body">
+
+
+<div>
+  <app-header (open)="logout()"></app-header>
+</div>
+
+
+<div id="searchWrapper" *ngIf="searchWrapperVisible">
+  <div id="title">Search for movie</div>
+  <input #search id="searchInput" type="search" autocomplete="off">
+  <button id="searchButton" (click)="searchForMovie(search.value)">SEARCH</button>
+</div>
+
+<div class="wrapperForGridWrapper" *ngIf="gridVisible">
+  <fa-icon [icon]="faWindowClose" (click)="closeGrid()"></fa-icon>
+  <div class="gridWrapper">
+    <div *ngFor="let movie of movies">
+      <div class="gridItem"><img src="{{movie.Poster}}" class="grid-item-img" (click)="gridItemClicked(movie.imdbID)">
+      </div>
+    </div>
+  </div>
+</div>
+
+<mat-spinner *ngIf="isLoading" style="position: absolute; left: 50%; top: 30%;"></mat-spinner>
+
+<div id="movieContent" class="movie-content" *ngIf="movieContentVisible">
+
+  <div class="movie-details">
+    <app-movie-details [movieTitle]="movieDetails.title.title"
+                       [moviePoster]="movieDetails.title.image.url"
+                       [movieProductionDate]="movieDetails.title.year"
+                       [movieDescription]="movieDetails.plotSummary.text"
+                       [movieLength]="movieDetails.title.runningTimeInMinutes +' min'"
+                       [movieType]="movieDetails.genres[0]"
+                       [movieRating]="movieDetails.ratings.rating"></app-movie-details>
+    <app-movie-comments [userReviews]="userReviews"></app-movie-comments>
+    <div>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title >
+          </mat-panel-title>
+          <mat-panel-description>
+            Write review
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div class="content">
+          <div id="recensionTitle">Write down your recension</div>
+          <textarea #recension id="recensionInput" style="width: 60%; height: 200px;"></textarea>
+          <div class="recension-bottom-nav">
+            <button (click)="submitRecension(recension.value); recension.value=''" class="recension-button">SUBMIT</button>
+            <button (click)="testRecension()">test</button>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </div>
+  </div>
+</div>
+</body>
