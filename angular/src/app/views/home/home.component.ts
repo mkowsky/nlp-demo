@@ -122,7 +122,7 @@ export class HomeComponent implements OnInit {
 
   submitRecension(value): void {
     console.log(value);
-    axios.post('http://localhost:8100/getReview', {
+    axios.post('http://localhost:5000/getReview', {
       params: {
         recenzja: value
       },
@@ -132,7 +132,7 @@ export class HomeComponent implements OnInit {
   }
 
   testRecension() {
-    axios.get('http://loclahost:5000/answer').then(response => {
+    axios.get('http://localhost:5000/answer').then(response => {
       console.log(response.data);
     });
   }
