@@ -6,18 +6,18 @@ import pickle
 
 
 def rateMultipleReviews(userReviews):
-    userReview = 'It feels like it was written by a 13 year old boy. Very naive assumptions of how criminals and even how people in general behave. Its really hard to believe or relate to anything in this movie.$#$#One of the best films of all time, an absolute masterpiece. The Godfather is arguably the best gangster drama as well as setting the standard for cinema.'
-    userReview = userReview.split("$#$#")
+    #userReview = 'It feels like it was written by a 13 year old boy. Very naive assumptions of how criminals and even how people in general behave. Its really hard to believe or relate to anything in this movie.$#$#One of the best films of all time, an absolute masterpiece. The Godfather is arguably the best gangster drama as well as setting the standard for cinema.'
+    #userReview = userReview.split("$#$#")
     returnedValues = []
     stop_words = set(stopwords.words('english'))
     processed_review = []
-    numberOfReviews = len(userReview)
+    numberOfReviews = len(userReviews)
     for i in range(0, numberOfReviews):
-        userReview[i] = re.sub('<.*?>', ' ', userReview[i])
-        userReview[i] = re.sub('\W', ' ', userReview[i])
-        userReview[i] = re.sub('\s+[a-zA-Z]\s+', ' ', userReview[i])
-        userReview[i] = re.sub('\s+', ' ', userReview[i])
-        word_tokens = word_tokenize(userReview[i])
+        userReviews[i] = re.sub('<.*?>', ' ', userReviews[i])
+        userReviews[i] = re.sub('\W', ' ', userReviews[i])
+        userReviews[i] = re.sub('\s+[a-zA-Z]\s+', ' ', userReviews[i])
+        userReviews[i] = re.sub('\s+', ' ', userReviews[i])
+        word_tokens = word_tokenize(userReviews[i])
         filtered_review = " ".join([w for w in word_tokens if w not in stop_words])
         processed_review.append(filtered_review)
 
