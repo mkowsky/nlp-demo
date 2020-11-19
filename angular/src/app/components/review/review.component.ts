@@ -24,13 +24,13 @@ export class ReviewComponent implements OnInit {
 
   klik(event: any): void {
     document.getElementById(event + 'rev').style.background = 'green';
-    this.reviewAdded.emit(event);
+    this.reviewAdded.emit({event, reviewID:  this.reviewID, content: this.reviewContent});
     this.isDeleteNeeded = true;
   }
 
-  usun(ev): void {
-    document.getElementById(ev + 'rev').style.background = 'transparent';
-    this.reviewDeleted.emit(ev);
+  usun(event): void {
+    document.getElementById(event + 'rev').style.background = 'transparent';
+    this.reviewDeleted.emit({event, reviewID:  this.reviewID, content: this.reviewContent});
     this.isDeleteNeeded = false;
   }
 }

@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit {
         paginationKey: 'g4wp7cbpry3tozal7gthtnbtrhq42bj6y4hhzo5ziwr26fbyhvrl4ty4ouzfrmbccrx5dtrbr5cwmfl3elkdljwlty2dlbmj'
       },
       headers: {
-        'x-rapidapi-key': '6e6bf0e8e9msh48f791fb8c37620p10a217jsnca7a9c0f7eea',
+        'x-rapidapi-key': 'b71f8eca75msha01633654eaf739p1065a5jsnba882ff4d7d0',
         'x-rapidapi-host': 'imdb8.p.rapidapi.com'
       }
     }).then(response => {
@@ -95,7 +95,7 @@ export class HomeComponent implements OnInit {
         currentCountry: 'US'
       },
       headers: {
-        'x-rapidapi-key': '6e6bf0e8e9msh48f791fb8c37620p10a217jsnca7a9c0f7eea',
+        'x-rapidapi-key': 'b71f8eca75msha01633654eaf739p1065a5jsnba882ff4d7d0',
         'x-rapidapi-host': 'imdb8.p.rapidapi.com'
       }
     }).then(response => {
