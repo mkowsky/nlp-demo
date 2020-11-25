@@ -15,8 +15,6 @@ bin/
 *.ipr
 *.iml
 *.iws
-resources/privateKey.pem
-resources/publicKey.pem
 
 # NetBeans
 nb-configuration.xml
