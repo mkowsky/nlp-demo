@@ -25,6 +25,7 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
 import {NgbRatingModule} from '@ng-bootstrap/ng-bootstrap';
 import { MovieCommentsComponent } from './components/movie-comments/movie-comments.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -51,6 +52,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatExpansionModule,
     NgbRatingModule,
     MatPaginatorModule,
+    MatTabsModule,
 
 
 

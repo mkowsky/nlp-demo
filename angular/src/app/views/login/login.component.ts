@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
   }
 
   public testQuarkusRESTAPI(): void {
-    axios.post('http://localhost:8080/users/login-test', {
+    axios.post('http://localhost:8100/users/login-test', {
       login: this.username,
       password: this.password,
     }).then(response => {

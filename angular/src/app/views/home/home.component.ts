@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import axios from 'axios';
-import {faAngleDown} from '@fortawesome/free-solid-svg-icons';
-import {faAngleUp} from '@fortawesome/free-solid-svg-icons';
 import {faWindowClose} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -11,52 +9,22 @@ import {faWindowClose} from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  searchValue = '';
   gridVisible = false;
   movies = [];
   flagaRecenzja = true;
-  currentMovie = '';
   userReviews = [];
-  currentFilmBaseInfo = [];
   isLoading = false;
   searchWrapperVisible = true;
   movieContentVisible = false;
-  commentsVisible = false;
-  faAngleDown = faAngleDown;
-  faAngleUp = faAngleUp;
   faWindowClose = faWindowClose;
-  reviewVisible = false;
-  chosenComments = [];
+
   movieDetails = '';
 
-
-  testContent = 'Home Alone is a familiar movie from childhood. I was surprised how good that still is. I last saw this movie about 15 years ago. Home Alone is still as fun as it was then before unlike some other movies of childhood. A main character is Kevin MacCallister (Culkin) who is a wild boy of a large family. He is accidentally left home when the rest of the family has gone to Paris for the christmas vacation. Two other important characters are Harry (Pesci) and Marv (Stern) who are criminals. The are going to rob valuable goods of houses which are empty during Christmas. They don\'t know Kevin is still at home. Kevin protects home from the burglars while these try to rob his family\'s house too. Movie contains some emotional moments along comedic scenes. Culkin, Pesci and Stern are very good in this movie. I think this is the best Christmas movie I have ever seen. 10/10';
 
   constructor(private router: Router) {
   }
 
   ngOnInit(): void {
-  }
-
-  addReviewToArray(review, identity): void {
-    this.chosenComments.push({id: identity, content: review.reviewText});
-  }
-
-  deleteReviewFromArray(review, identity): void {
-    for (let i = 0; i < this.chosenComments.length; i++) {
-      if (this.chosenComments[i].id === identity) {
-        this.chosenComments.splice(i, 1);
-      }
-    }
-  }
-
-  showComments(): void {
-    this.commentsVisible = !this.commentsVisible;
-  }
-
-  showReview(): void {
-    console.log('lol');
-    this.reviewVisible = !this.reviewVisible;
   }
 
   logout(): void {
@@ -72,13 +40,13 @@ export class HomeComponent implements OnInit {
         paginationKey: 'g4wp7cbpry3tozal7gthtnbtrhq42bj6y4hhzo5ziwr26fbyhvrl4ty4ouzfrmbccrx5dtrbr5cwmfl3elkdljwlty2dlbmj'
       },
       headers: {
-        'x-rapidapi-key': '6e6bf0e8e9msh48f791fb8c37620p10a217jsnca7a9c0f7eea',
+        'x-rapidapi-key': 'b71f8eca75msha01633654eaf739p1065a5jsnba882ff4d7d0',
         'x-rapidapi-host': 'imdb8.p.rapidapi.com'
       }
     }).then(response => {
-      //console.log(response);
+      // console.log(response);
       this.userReviews = response.data.reviews;
-      //this.currentFilmBaseInfo = response.data.base;
+      // this.currentFilmBaseInfo = response.data.base;
       console.log(this.userReviews);
       // console.log(this.currentFilmBaseInfo);
       this.isLoading = false;
@@ -95,7 +63,7 @@ export class HomeComponent implements OnInit {
         currentCountry: 'US'
       },
       headers: {
-        'x-rapidapi-key': '6e6bf0e8e9msh48f791fb8c37620p10a217jsnca7a9c0f7eea',
+        'x-rapidapi-key': 'b71f8eca75msha01633654eaf739p1065a5jsnba882ff4d7d0',
         'x-rapidapi-host': 'imdb8.p.rapidapi.com'
       }
     }).then(response => {
@@ -106,13 +74,6 @@ export class HomeComponent implements OnInit {
   }
 
   gridItemClicked(imdbID): void {
-    // for (let i = 0; i < this.movies.length; i++) {
-    //   if (this.movies[i].imdbID === value) {
-    //     this.currentMovie = this.movies[i];
-    //     console.log('znalazlem');
-    //     console.log(this.currentMovie);
-    //   }
-    // }
     this.gridVisible = false;
     this.isLoading = true;
     document.getElementById('body').style.opacity = '0.5';
@@ -121,26 +82,12 @@ export class HomeComponent implements OnInit {
   }
 
   submitRecension(value): void {
-    console.log(value);
-    axios.post('http://localhost:8100/getReview', {
-      params: {
-        recenzja: value
-      },
+    // @TODO: tutaj zmienic url
+    axios.post('http://localhost:8100/flask/single-review', {
+      review: value,
     }).then(response => {
-      console.log(response.status);
-    });
-  }
-
-  testRecension() {
-    axios.get('http://loclahost:5000/answer').then(response => {
       console.log(response.data);
     });
-  }
-
-  testArray(): void {
-    for (let i = 0; i < this.chosenComments.length; i++) {
-      console.log(this.chosenComments[i].id + ' ' + this.chosenComments[i].content);
-    }
   }
 
   searchForMovie(template): void {
@@ -155,5 +102,6 @@ export class HomeComponent implements OnInit {
     this.gridVisible = false;
     this.searchWrapperVisible = true;
   }
+
 
 }

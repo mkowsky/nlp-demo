@@ -7,15 +7,17 @@
   User reviews
     </mat-panel-description>
   </mat-expansion-panel-header>
+  <button (click)="sendArrayWithReviews()">Send reviews</button>
   <app-review *ngFor="let review of reviewsToDisplay; let i = index"
               [reviewContent]="review.reviewText"
               [reviewRating]="review.authorRating"
               [reviewTitle]="review.reviewTitle"
               [reviewID]="i"
+              (reviewAdded)="reviewAdded($event)"
+              (reviewDeleted)="reviewDeleted($event)"
               class="user-review">
   </app-review>
-  <!--(reviewAdded)="addReviewToArray(review, i)"-->
-  <!--(reviewDeleted)="deleteReviewFromArray(review, i )"-->
+
 
   <mat-paginator [length]="24"
                  [pageSize]="6"

@@ -1,8 +1,19 @@
 package pl.mkowsky.security.resources;
 
-import pl.mkowsky.security.model.ERole;
+
+import org.eclipse.microprofile.rest.client.inject.RestClient;
+
+import org.jboss.resteasy.annotations.jaxrs.PathParam;
+
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import pl.mkowsky.security.client.FlaskService;
+
 import pl.mkowsky.security.model.Role;
 import pl.mkowsky.security.payload.RegisterRequest;
+
 import pl.mkowsky.security.services.TokenService;
 import pl.mkowsky.security.model.User;
 import pl.mkowsky.security.payload.LoginRequest;
@@ -14,7 +25,9 @@ import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
 import java.util.HashSet;
+
 import java.util.Set;
 
 @Path("/users")
@@ -23,6 +36,8 @@ import java.util.Set;
 public class UserResource {
     @Inject
     TokenService service;
+
+
 
     @POST
     @Path("/register")
@@ -34,7 +49,7 @@ public class UserResource {
             throw new WebApplicationException(Response.status(404).entity("Email is already taken").build());
         } else {
             User newUser = new User(registerRequest.getEmail(),
-                                    registerRequest.getPassword());
+                    registerRequest.getPassword());
 
             Set<Role> roles = new HashSet<>();
             Role role = Role.find("id", Long.valueOf("1")).firstResult();
@@ -47,6 +62,8 @@ public class UserResource {
 
 
     }
+
+
 
 //    @GET
 //    @Path("/login")

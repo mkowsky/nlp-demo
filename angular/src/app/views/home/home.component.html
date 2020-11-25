@@ -34,7 +34,10 @@
                        [movieLength]="movieDetails.title.runningTimeInMinutes +' min'"
                        [movieType]="movieDetails.genres[0]"
                        [movieRating]="movieDetails.ratings.rating"></app-movie-details>
-    <app-movie-comments [userReviews]="userReviews"></app-movie-comments>
+
+    <app-movie-comments [userReviews]="userReviews"
+                        (reviewAdded)="addReviewToArray(review, i)"
+                        (reviewDeleted)="deleteReviewFromArray(review, i )"></app-movie-comments>
     <div>
 
       <mat-expansion-panel>
@@ -50,11 +53,13 @@
           <textarea #recension id="recensionInput" style="width: 60%; height: 200px;"></textarea>
           <div class="recension-bottom-nav">
             <button (click)="submitRecension(recension.value); recension.value=''" class="recension-button">SUBMIT</button>
-            <button (click)="testRecension()">test</button>
           </div>
         </div>
       </mat-expansion-panel>
     </div>
-  </div>
+
+
 </div>
+</div>
+
 </body>

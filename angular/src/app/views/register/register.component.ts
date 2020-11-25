@@ -76,7 +76,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public registerNewUser(): void {
-    axios.post('http://localhost:8080/users/register', {
+    axios.post('http://localhost:8100/users/register', {
       email: this.email,
       password: this.password,
     }).then(response => {
