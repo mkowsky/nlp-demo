@@ -1,13 +1,7 @@
-<<<<<<< HEAD
-import numpy as np
-from sklearn import metrics
-from sklearn.metrics import confusion_matrix
-=======
 from sklearn.metrics import accuracy_score
 from sklearn import metrics
 from sklearn.metrics import confusion_matrix
 import numpy as np
->>>>>>> 96d60afd956b99bbedd517544518cdfacf0eeed8
 
 
 def get_metrics(classification_result, expected_result):

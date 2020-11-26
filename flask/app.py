@@ -1,8 +1,8 @@
 from flask import Flask, request
 from flask_cors import CORS
 
-from ConverJsonRequestToReviewArray import *
-from UserReviews import *
+from convert_json_request_to_review_array import *
+from user_reviews import *
 
 app = Flask(__name__)
 cors = CORS(app)
