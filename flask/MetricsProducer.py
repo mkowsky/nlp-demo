@@ -1,3 +1,7 @@
+from sklearn.metrics import accuracy_score
+from sklearn import metrics
+from sklearn.metrics import confusion_matrix
+import numpy as np
 
 def getMetrics(classification_result, expected_result):
     array_clas = np.array(classification_result)
