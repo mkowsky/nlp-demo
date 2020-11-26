@@ -2,7 +2,11 @@ from setuptools import setup, find_packages
 
 requires = [
     'flask',
-    'flask-sqlalchemy', 'nltk', 'scikit-learn', 'pandas', 'numpy'
+    'flask-sqlalchemy',
+    'nltk',
+    'scikit-learn',
+    'pandas',
+    'numpy'
 ]
 
 setup(
