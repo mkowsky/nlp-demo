@@ -23,13 +23,13 @@ def get_review():
 
 @app.route('/getReviews', methods=['POST'])
 def get_reviews():
-    jsonRequest = request.get_json()
-    arrayOfUserReview = convert(jsonRequest)
-    arrayWithReviews = rate_multiple_reviews(arrayOfUserReview)
-    stringWithReviews = ""
-    for i in range(0, len(arrayWithReviews)):
-        stringWithReviews += (" " + arrayWithReviews[i])
-    return stringWithReviews
+    json_request = request.get_json()
+    array_of_user_review = convert(json_request)
+    array_with_reviews = rate_multiple_reviews(array_of_user_review)
+    string_with_reviews = ""
+    for i in range(0, len(array_with_reviews)):
+        string_with_reviews += (" " + array_with_reviews[i])
+    return string_with_reviews
 
 
 if __name__ == '__main__':
