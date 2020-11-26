@@ -3,7 +3,8 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import re
 
-def rateReview(userReview):
+
+def rateSingleReview(userReview):
     stop_words = set(stopwords.words('english'))
     processed_review = []
     userReview = re.sub('<.*?>', ' ', userReview)

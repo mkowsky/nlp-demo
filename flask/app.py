@@ -1,8 +1,9 @@
-from flask import Flask, jsonify, request
-from flask_cors import CORS, cross_origin
-from UserReviewsLight import *
-from MultipleUserReviews import *
+from flask import Flask, request
+from flask_cors import CORS
+
 from ConverJsonRequestToReviewArray import *
+from MultipleUserReviews import *
+from SingleUserReview import *
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -18,7 +19,7 @@ def hello_world():
 def get_review():
     jsonRequest = request.get_json()
     review = jsonRequest['review']
-    return rateReview(review)
+    return rateSingleReview(review)
 
 @app.route('/getReviews', methods=['POST'])
 def get_reviews():

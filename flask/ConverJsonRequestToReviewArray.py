@@ -1,13 +1,8 @@
-
 def convert(jsonRequest):
-
-    values=[]
+    values = []
     length = len(jsonRequest['reviews'])
 
-    for i in range(0,length):
+    for i in range(0, length):
         values.append(jsonRequest['reviews'][i]['content'])
         print(jsonRequest['reviews'][i]['content'])
-
-
-
     return values

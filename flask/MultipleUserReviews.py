@@ -6,8 +6,6 @@ import pickle
 
 
 def rateMultipleReviews(userReviews):
-    #userReview = 'It feels like it was written by a 13 year old boy. Very naive assumptions of how criminals and even how people in general behave. Its really hard to believe or relate to anything in this movie.$#$#One of the best films of all time, an absolute masterpiece. The Godfather is arguably the best gangster drama as well as setting the standard for cinema.'
-    #userReview = userReview.split("$#$#")
     returnedValues = []
     stop_words = set(stopwords.words('english'))
     processed_review = []
