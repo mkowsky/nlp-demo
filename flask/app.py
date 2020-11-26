@@ -2,8 +2,7 @@ from flask import Flask, request
 from flask_cors import CORS
 
 from ConverJsonRequestToReviewArray import *
-from MultipleUserReviews import *
-from SingleUserReview import *
+from UserReviews import *
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -17,22 +16,20 @@ def hello_world():
 
 @app.route('/getReview', methods=['POST'])
 def get_review():
-    jsonRequest = request.get_json()
-    review = jsonRequest['review']
-    return rateSingleReview(review)
+    json_request = request.get_json()
+    review = json_request['review']
+    return rate_single_review(review)
+
 
 @app.route('/getReviews', methods=['POST'])
 def get_reviews():
     jsonRequest = request.get_json()
-    print(jsonRequest)
     arrayOfUserReview = convert(jsonRequest)
-    arrayWithReviews = rateMultipleReviews(arrayOfUserReview)
-    stringWithReviews=""
+    arrayWithReviews = rate_multiple_reviews(arrayOfUserReview)
+    stringWithReviews = ""
     for i in range(0, len(arrayWithReviews)):
         stringWithReviews += (" " + arrayWithReviews[i])
     return stringWithReviews
-
-
 
 
 if __name__ == '__main__':

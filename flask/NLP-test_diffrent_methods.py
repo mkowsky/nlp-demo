@@ -1,19 +1,17 @@
-import numpy as np
-import pandas as pd
+import pickle
 import re
 import nltk
-from sklearn import metrics
-import os
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.model_selection import train_test_split
-from sklearn.naive_bayes import MultinomialNB
+import pandas as pd
+
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
-from sklearn.metrics import classification_report, confusion_matrix
+from sklearn import metrics
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression, SGDClassifier
+from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import MultinomialNB
 from sklearn.svm import LinearSVC
-import pickle
-
 
 imdb_data=pd.read_csv('IMDB Dataset.csv')
 print(imdb_data.shape)

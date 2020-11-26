@@ -1,5 +1,9 @@
+import numpy as np
+from sklearn import metrics
+from sklearn.metrics import confusion_matrix
 
-def getMetrics(classification_result, expected_result):
+
+def get_metrics(classification_result, expected_result):
     array_clas = np.array(classification_result)
     array_exp = np.array(expected_result)
     array_clas = np.where(array_clas == 'positive', '1', '0').astype('int32')
