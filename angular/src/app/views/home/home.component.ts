@@ -83,8 +83,10 @@ export class HomeComponent implements OnInit {
 
   submitRecension(value): void {
     // @TODO: tutaj zmienic url
+    const token = localStorage.getItem('token');
     axios.post('http://localhost:8100/flask/single-review', {
       review: value,
+      jwt: token,
     }).then(response => {
       console.log(response.data);
     });

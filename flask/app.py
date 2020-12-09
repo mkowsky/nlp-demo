@@ -17,8 +17,10 @@ def hello_world():
 @app.route('/getReview', methods=['POST'])
 def get_review():
     json_request = request.get_json()
-    review = json_request['review']
+    print(json_request)
+    review = json_request
     return rate_single_review(review)
+
 
 
 @app.route('/getReviews', methods=['POST'])

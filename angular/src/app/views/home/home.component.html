@@ -25,11 +25,7 @@
 <mat-spinner *ngIf="isLoading" style="position: absolute; left: 50%; top: 30%;"></mat-spinner>
 
 <div id="movieContent" class="movie-content" *ngIf="movieContentVisible">
-  <mat-tab-group>
-    <mat-tab label="First"> Content 1 </mat-tab>
-    <mat-tab label="Second"> Content 2 </mat-tab>
-    <mat-tab label="Third"> Content 3 </mat-tab>
-  </mat-tab-group>
+
   <div class="movie-details">
     <app-movie-details [movieTitle]="movieDetails.title.title"
                        [moviePoster]="movieDetails.title.image.url"
