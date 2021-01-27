@@ -1,0 +1,137 @@
+<body>
+
+<app-loader *ngIf="isLoading" style="position: absolute; top: 50%; width: 100%"></app-loader>
+<div *ngIf="!isLoading"
+     style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; width: 100%; ">
+  <!--*ngIf="!gameStarted && !showResults"-->
+    <div *ngIf="!gameStarted && !showResults">
+      <div style="height: 100vh; display: flex; padding: 40px;">
+        <div style="width: 50%; justify-content: center; align-items: center; display: flex; flex-direction: column">
+          <div style="font-size: 60px; color: #FCA417; font-weight: 800; text-transform: uppercase">Lets play a game!</div>
+          <div style="font-size: 44px; font-weight: 500;  color: black; opacity: 0.7;letter-spacing: 2px; text-align: center">Here you can check how our model handle with rating others people reviews in a linear 1-10 scale. You can even try to compete with him in a simple game. </div>
+          <div style="font-size: 30px; font-weight: 400; color: #424242; background: #FCA417; padding: 20px; border-radius: 25px; text-align: center; margin-top: 40px;" (click)="sendMultipleReviews()"> Scroll  down to see details.</div>
+        </div>
+        <div style="width: 50%; display: flex; flex-direction: column ">
+              <img src="../assets/game.svg">
+        </div>
+
+      </div>
+
+      <div
+        style="height: 100vh;  width: 100%; display: flex; align-items: center; justify-content: center;  background: linear-gradient(90deg, rgba(252,234,187,1) 0%, rgba(244,187,65,1) 15%, rgba(251,174,23,1) 43%, rgba(249,198,86,1) 76%, rgba(248,181,0,1) 100%); ">
+
+        <div style="width: 40%;">
+          <div style="font-size: 50px; text-transform: uppercase; font-weight: 800; opacity: 0.8;">Are you a competitor?</div>
+          <div style="  color: black;  font-size: 40px;  font-weight: 400;  margin-bottom: 20px;  width: 600px;  font-style: italic;  opacity: 0.8;">
+            Choose if you would like to try to comepte with our model and rate all the reviews we
+            have prepared for you.
+          </div>
+        </div>
+
+        <div
+          style="display: flex; flex-direction: column; justify-content: space-evenly; height: 100%; align-items: center">
+
+
+            <div style="display: flex; flex-direction: row">
+              <div class="-game-card-inactive" id="game-true" (click)="gameOptions('true')">
+                <div style="font-size: 80px; font-weight: 800;">Yes</div>
+                <div>You will have to read and rate all the comments from scale 1-10</div>
+              </div>
+              <div class="-game-card-inactive" id="game-false" (click)="gameOptions('false')">
+                <div style="font-size: 80px; font-weight: 800;">No</div>
+                <div>You will be navigated directly to results.</div>
+              </div>
+            </div>
+
+
+        </div>
+
+      </div>
+
+      <div style="height: 100vh; background: #424242; display: flex; justify-content: center; align-items: center; padding: 50px; flex-direction: column">
+        <div style="font-size: 70px; font-weight: 800; color: white">
+          <span>We are </span>
+          <span>almost ready!</span>
+        </div>
+        <div class="claim">Pick NUMBER!</div>
+        <div style="font-size: 40px; color: white; opacity: 0.8; width: 800px; text-align: center; margin-bottom: 40px;">
+          We will generate as many comments assigned to this movie as you choose!
+        </div>
+
+
+          <div style="display: flex; flex-direction: row; margin-bottom: 50px;">
+            <div class="-options-card-inactive" (click)="pickCard('2')" id="card-2">
+              <div style="font-size: 80px; font-weight: 800; color: #f7b000">2</div>
+            </div>
+            <div class="-options-card-inactive" (click)="pickCard('3')" id="card-3">
+              <div style="font-size: 80px; font-weight: 800; color: #f7b000">3</div>
+            </div>
+            <div class="-options-card-inactive" (click)="pickCard('5')" id="card-5">
+              <div style="font-size: 80px; font-weight: 800; color: #f7b000">5</div>
+            </div>
+          </div>
+
+        <button class="play-button" (click)="startGame()" [disabled]="checkIfDisabled()">Let's play!</button>
+      </div>
+    </div>
+
+
+
+  <!--*ngIf="gameStarted && !showResults-->
+    <div *ngIf="gameStarted && !showResults"
+         style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background: #424242; width: 100%;">
+
+    <div style="display: flex; flex-direction: column;  justify-content: space-between; align-items: center">
+      <div class="review-title">{{currentComment.reviewTitle}}</div>
+      <div class="review-content">{{currentComment.reviewText}}</div>
+      <ng-template #t let-fill="fill">
+  <span class="star" [class.full]="fill === 100">
+    	&#x2605;
+  </span>
+      </ng-template>
+      <ngb-rating [(rate)]="currentRate" [starTemplate]="t" [readonly]="false" style="font-size: 40px; outline: none" (hover)="calculateRating($event)"></ngb-rating>
+      <div style="font-size: 30px; margin-bottom: 10px; margin-top: 10px; color: white">Your rating: {{currentRate}} / 10</div>
+      <button style="background: #f7b000; width: 200px; border-radius: 25px; height: 50px; " (click)="confirmRating()">Confirm</button>
+
+    </div>
+    </div>
+
+
+
+
+<!--showResults -->
+    <div *ngIf="showResults">
+      <app-loader *ngIf="loadingResponse" style="position: absolute; top: 50%; width: 100%"></app-loader>
+      <!--*ngIf="!loadingResponse"-->
+      <div *ngIf="!loadingResponse" style="display: flex; flex-direction: column">
+
+        <div style="font-size: 40px; font-weight: 800; margin-bottom: 20px;">Results</div>
+
+        <table>
+          <tr>
+            <th>Comment</th>
+            <th *ngIf="template">Your rating</th>
+            <th>Binary model</th>
+            <th>Linear model</th>
+            <th>Actual rating</th>
+          </tr>
+          <tr *ngFor="let item of resultsArray">
+            <td>{{item.index}}</td>
+            <td *ngIf="template">{{item.userRating}}</td>
+            <td>{{item.binaryModelRating}}</td>
+            <td>{{item.linearModelRating}}</td>
+            <td>{{item.actualRating}}</td>
+          </tr>
+        </table>
+
+        <button (click)="navBack()">done</button>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+</body>

@@ -1,0 +1,54 @@
+<body>
+<app-loader *ngIf="isLoading" style="position: absolute; top: 50%; width: 100%"></app-loader>
+<div *ngIf="!isLoading">
+<div style="background: white; width: 100%;  display: flex; flex-direction: column; align-items: center; justify-content: center">
+
+      <div style="height: 100vh; display: flex; justify-content: center; align-items: center">
+
+        <app-movie-details [movieTitle]="movieDetails.title.title"
+        [moviePoster]="movieDetails.title.image.url"
+        [movieProductionDate]="movieDetails.title.year"
+        [movieDescription]="movieDetails.plotSummary.text"
+        [movieLength]="movieDetails.title.runningTimeInMinutes +' min'"
+        [movieType]="movieDetails.genres[0]"
+        [movieRating]="movieDetails.ratings.rating"></app-movie-details>
+      </div>
+
+  <!--background: #fbae17;-->
+  <div style="height: 100vh; width: 100%;  background: linear-gradient(90deg, rgba(252,234,187,1) 0%, rgba(244,187,65,1) 15%, rgba(251,174,23,1) 43%, rgba(249,198,86,1) 76%, rgba(248,181,0,1) 100%); display: flex; justify-content: center; flex-direction: column; align-items: center ">
+      <div style="font-size: 60px; color: white; font-weight: 800;">Discover all the features!</div>
+    <div style="font-size: 40px; margin-bottom: 40px;">Click to begin your journey!</div>
+    <div style="display: flex; margin-bottom: 50px; ;">
+        <div class="-card" [routerLink]="['/single-review']" (mouseover)="appendDescription(0)" (mouseleave)="appendDescription(null)" >
+          <div class="title">Let us review your review!</div>
+          <img src="../assets/Asset4.svg"  class="-icon2">
+
+        </div>
+        <div class="-card" [routerLink]="['/multiple-reviews', currentMovieID]" (mouseover)="appendDescription(1)" (mouseleave)="appendDescription(null)">
+          <div class="title">Play a game!</div>
+          <img src="../assets/game.svg"  class="-icon">
+
+        </div>
+        <div class="-card" [routerLink]="['/stats']" (mouseover)="appendDescription(2)" (mouseleave)="appendDescription(null)">
+          <div class="title">Lets do math!</div>
+          <img src="../assets/calc1.svg"  class="-icon">
+
+        </div>
+        <div class="-card" [routerLink]="['/movie-rating', currentMovieID]" (mouseover)="appendDescription(3)" (mouseleave)="appendDescription(null)">
+          <div class="title">Meet biggest movie fan!</div>
+          <img src="../assets/rob.svg"  class="-icon3">
+
+        </div>
+    </div>
+    <div id="dsc" style="font-size: 40px; font-weight: 400; opacity: 0.8; width: 1000px; text-align: center">{{currentDescription}}</div>
+  </div>
+
+
+
+</div>
+
+</div>
+</body>
+
+
+

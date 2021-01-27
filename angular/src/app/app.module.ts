@@ -16,17 +16,26 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { RegisterComponent } from './views/register/register.component';
-import { HeaderComponent } from './components/header/header.component';
+
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatExpansionModule} from '@angular/material/expansion';
-import { ReviewComponent } from './components/review/review.component';
 
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import {NgbRatingModule} from '@ng-bootstrap/ng-bootstrap';
-import { MovieCommentsComponent } from './components/movie-comments/movie-comments.component';
+
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import { MovieComponent } from './views/movie/movie.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { SingleReviewComponent } from './views/single-review/single-review.component';
+import { MultipleReviewsComponent } from './views/multiple-reviews/multiple-reviews.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
+import { StatsComponent } from './views/stats/stats.component';
+import { MovieRatingComponent } from './views/movie-rating/movie-rating.component';
+import { AboutComponent } from './views/about/about.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TestComponent } from './views/test/test.component';
 
 
 
@@ -36,10 +45,15 @@ import {MatTabsModule} from '@angular/material/tabs';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    HeaderComponent,
-    ReviewComponent,
     MovieDetailsComponent,
-    MovieCommentsComponent,
+    MovieComponent,
+    LoaderComponent,
+    SingleReviewComponent,
+    MultipleReviewsComponent,
+    StatsComponent,
+    MovieRatingComponent,
+    AboutComponent,
+    TestComponent,
 
   ],
   imports: [
@@ -53,6 +67,10 @@ import {MatTabsModule} from '@angular/material/tabs';
     NgbRatingModule,
     MatPaginatorModule,
     MatTabsModule,
+    MatCheckboxModule,
+    MatRadioModule,
+    ReactiveFormsModule,
+
 
 
 

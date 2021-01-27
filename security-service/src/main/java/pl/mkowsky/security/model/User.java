@@ -3,6 +3,7 @@ package pl.mkowsky.security.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,6 +16,9 @@ public class User extends PanacheEntity {
 
     public String email;
     public String password;
+
+
+    public boolean active;
 
     @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY, cascade ={CascadeType.MERGE})
@@ -55,5 +59,13 @@ public class User extends PanacheEntity {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

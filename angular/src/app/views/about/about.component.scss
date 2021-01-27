@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;800&display=swap');
+@import '~src/colors.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0 0;
+  font-family: Montserrat, sans-serif;
+}
+
+
+.section1 {
+  height: 100vh;
+  width: 100%;
+  background: white;
+
+  .-nav-header {
+    width: 100%;
+    height: 120px;
+    display: flex;
+  }
+
+  ul {
+    width: 100%;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  li {
+    color: black;
+    margin-right: 60px;
+    font-size: 30px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  li:first-of-type {
+    margin-right: auto;
+  }
+
+  li:last-child {
+    background: $primary-yellow1;
+    padding: 15px;
+    border-radius: 25px;
+  }
+
+  .flex-wrapper {
+    display: flex;
+    height: 100%;
+    padding: 40px;
+  }
+
+  .half-page-width {
+    width: 50%;
+  }
+
+  .-claim {
+    font-weight: 800;
+    display: flex;
+    flex-direction: column;
+
+    .-upper {
+      font-size: 70px;
+      margin-bottom: -30px;
+    }
+
+    .-lower {
+      font-size: 90px;
+      color: $primary-yellow1;
+    }
+  }
+
+  .-description {
+    font-size: 36px;
+    width: 800px;
+    text-align: justify-all;
+    font-weight: 300;
+    margin-bottom: 100px;
+  }
+
+  .-img {
+    width: 80%;
+  }
+
+  .-img-between-sections {
+    position: relative;
+    width: 1000px;
+  }
+
+}
+
+.section2 {
+  height: 100vh;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .-background {
+    width: 100%;
+    height: 600px;
+    background: #323232;
+  }
+
+  .-flex {
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    align-items: center;
+    height: 600px;
+  }
+
+  .-flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .-title-upper {
+    font-size: 90px;
+    font-weight: 800;
+    color: $primary-yellow3
+  }
+
+  .-title-lower {
+    text-align: center;
+    background: $primary-red;
+    font-size: 90px;
+    font-weight: 800;
+    color: $primary-yellow3;
+    transition: .3s;
+    outline: none;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+  }
+}
+
+.section3 {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  background: $gradient1;
+  .-title{
+    font-size: 72px;
+    font-weight: 800;
+  }
+  .flex-box{
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content-text {
+    display: flex;
+    flex-direction: column;
+
+
+  }
+
+  .-width-50-flex {
+
+    width: 50%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+  }
+
+  .display-content {
+    width: 700px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .-content-img {
+      height: 400px;
+    }
+
+    .-content-description {
+      font-size: 30px;
+      font-weight: 300;
+      text-align: center;
+      align-self: center;
+      margin-bottom: 30px;
+    }
+  }
+
+
+  .sample {
+
+    padding: 15px 0 15px 20px;
+    font-size: 36px;
+    font-weight: 800;
+    color: #424242;
+    opacity: 0.4;
+    cursor: pointer;
+
+  }
+
+  .sample:hover {
+    opacity: 0.8;
+  }
+
+  .sample-active {
+
+    padding: 15px 0 15px 20px;
+    font-size: 36px;
+    font-weight: 800;
+    color: $background-dark;
+    border-left: 20px solid $primary-red;
+    opacity: 1;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .span-inactive {
+    margin-right: 20px;
+    transition: 0.3s;
+  }
+
+  .span-active {
+    color: $primary-red;
+    margin-right: 20px;
+    transition: 0.3s;
+  }
+
+  .nav {
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .-bar {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      margin-right: 15px;
+      background: black;
+    }
+
+    .-bar-active {
+      background: $primary-red;
+      transition: 0.3s;
+    }
+
+    .-bar-inactive {
+      background: black;
+      opacity: 0.5;
+      transition: 0.3s;
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+

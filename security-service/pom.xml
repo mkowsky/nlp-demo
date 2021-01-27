@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.acme</groupId>
   <artifactId>code-with-quarkus</artifactId>
@@ -30,6 +30,11 @@
     </dependencies>
   </dependencyManagement>
   <dependencies>
+    <!--  mail sending-->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-mailer</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -39,10 +44,7 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-hibernate-orm</artifactId>
     </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-spring-data-jpa</artifactId>
-    </dependency>
+
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-jwt</artifactId>

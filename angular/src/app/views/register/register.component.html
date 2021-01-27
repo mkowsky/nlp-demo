@@ -1,67 +1,114 @@
 <body>
-<div class="session" id="session" [@slideInOut]="animationState" >
-  <div class="left">
-  </div>
-
-  <div class="login-title-wrapper">
-    <h4>NLP<span> REGISTER</span></h4>
-  </div>
 
 
 
-  <div class="login-form-wrapper">
+<div *ngIf="!registerSucceed && !isLoading" class="container-singup">
+
+  <div class="logo" [routerLink]="['']">NLP-DEMO</div>
 
 
-    <div class="floating-label">
-      <div class="error" *ngIf="allFieldsFilled">{{emailError}}</div>
-      <div style="display: inline-flex">
-        <input placeholder="Email"
-               id="email"
-               class="login-input"
-               autocomplete="off"
-               [(ngModel)]="email"
-               (ngModelChange)="valueHasChanged()">
-        <label for="email">Email</label>
-        <fa-icon [icon]="mail" class="fa-2x icon"></fa-icon>
+    <div class="half-page-flex"
+      >
+
+      <div class="back-wrp">
+        <div style="cursor: pointer;" [routerLink]="''">< Back</div>
       </div>
-    </div>
+      <div class="register-box">
+        <div class="-title">Create account</div>
+        <form [formGroup]="userEmails">
 
-    <div class="floating-label">
-      <div class="error" *ngIf="allFieldsFilled">{{passwordError}}</div>
-      <input placeholder="Password"
-             id="password"
-             class="login-input"
-             autocomplete="off"
-             type="password"
-             [(ngModel)]="password"
-             (ngModelChange)="valueHasChanged()">
-      <label for="password">Password</label>
-      <fa-icon [icon]="faLock" class="fa-2x icon"></fa-icon>
-    </div>
+          <div class="floating-label">
+            <div class="error" *ngIf="allFieldsFilled">{{emailError}}</div>
+            <div class="error" *ngIf="userEmails.get('primaryEmail').invalid && userEmails.get('primaryEmail').touched">Email format is wrong.</div>
+            <div style="display: inline-flex">
+              <input placeholder="Email"
+                     formControlName="primaryEmail"
+                     id="email"
+                     class="login-input"
+                     autocomplete="off"
+                     [(ngModel)]="email"
+                     [class.invalid]="userEmails.get('primaryEmail').invalid && userEmails.get('primaryEmail').touched"
+                     (ngModelChange)="valueHasChanged()">
+              <label for="email">Email</label>
+              <fa-icon [icon]="mail" class="fa-2x icon-signup"></fa-icon>
+            </div>
+          </div>
 
-    <div class="floating-label">
-      <div class="error" *ngIf="allFieldsFilled">{{repeatPasswordError}}</div>
-      <div style="display: inline-flex">
-        <input placeholder="Repeat password"
-               id="repeatPassword"
-               class="login-input"
-               autocomplete="off"
-               type="password"
-               [(ngModel)]="repeatPassword"
-               (ngModelChange)="valueHasChanged()">
-        <label for="repeatPassword">Repeat password</label>
-        <fa-icon [icon]="key" class="fa-2x icon"></fa-icon>
+          <div class="floating-label">
+            <div class="error" *ngIf="allFieldsFilled">{{passwordError}}</div>
+            <div class="error" *ngIf="userEmails.get('password').invalid && userEmails.get('password').touched">This field is required!. </div>
+            <input placeholder="Password"
+                   formControlName="password"
+                   id="password"
+                   class="login-input"
+                   autocomplete="off"
+                   type="password"
+                   [(ngModel)]="password"
+                   (ngModelChange)="valueHasChanged()">
+            <label for="password">Password</label>
+            <fa-icon [icon]="faLock" class="fa-2x icon-signup"></fa-icon>
+          </div>
+
+          <div class="floating-label">
+            <div class="error" *ngIf="allFieldsFilled">{{repeatPasswordError}}</div>
+            <div class="error" *ngIf="userEmails.get('passwordRepeat').invalid && userEmails.get('passwordRepeat').touched">This field is required!.</div>
+            <div style="display: inline-flex">
+              <input placeholder="Repeat password"
+                     formControlName="passwordRepeat"
+                     id="repeatPassword"
+                     class="login-input"
+                     autocomplete="off"
+                     type="password"
+                     [(ngModel)]="repeatPassword"
+                     (ngModelChange)="valueHasChanged()">
+              <label for="repeatPassword">Repeat password</label>
+              <fa-icon [icon]="key" class="fa-2x icon-signup"></fa-icon>
+            </div>
+          </div>
+        </form>
+        <button class="play-with-us" (click)="startRegisterProcess()" [disabled]="signUpButtonDisabled">LET'S START! </button>
+        <div class="to-register" [routerLink]="['/login']">Already have an account? <span>Log in</span></div>
       </div>
+
+
+
+    </div>
+
+    <div class="half-page-flex">
+      <img src="../assets/rocket.svg" style="margin-top: 9px;">
+    </div>
+
+</div>
+
+<div *ngIf="!registerSucceed && isLoading" style="height: 100vh;">
+  <app-loader  style="position: absolute; top: 50%; width: 100%"></app-loader>
+</div>
+
+<div *ngIf="registerSucceed && !isLoading" class="container-singup">
+  <div class="logo" [routerLink]="['']">NLP-DEMO</div>
+  <div class="half-page-flex">
+    <div class="claim">We are almost there!</div>
+    <div class="code-box">
+      <fa-icon [icon]="mail" class="fa-5x icon-signup" icon></fa-icon>
+      <div style="font-size: 28px; margin-bottom: 10px; text-align: center">We've sent a code to <span style="font-weight: 800">{{email}}</span></div>
+
+      <div style="font-size: 22px; font-weight: 500; opacity: 0.8; margin-bottom: 20px;">Please enter it below.</div>
+      <div class="code-error">{{codeError}}</div>
+      <input [(ngModel)]="pin"
+        type="text"  maxlength="5" placeholder="*****" class="code-input">
+      <button [disabled]="confirmButtonDisabled()"
+        class="pin-confirm" (click)="confirmRegistration()">Confirm</button>
+      <div>Send another email.</div>
     </div>
 
 
-
+    <div></div>
+  </div>
+  <div style="width: 50%">
+    <img src="../assets/almost-there-white.svg">
   </div>
 
 
-  <button class="login-button" (click)="startRegisterProcess()" [disabled]="signUpButtonDisabled">SIGN UP</button>
-
-  <div class="to-register" (click)="toggleShowDiv('session')">Already have an account? <span>Log in</span></div>
 </div>
 
 

@@ -1,0 +1,76 @@
+<body>
+<div class="section1">
+  <div class="-nav-header">
+    <ul>
+      <li>NLP-DEMO</li>
+      <li [routerLink]="['/login']">LOGIN</li>
+      <li [routerLink]="['/register']">SIGN UP</li>
+    </ul>
+  </div>
+  <div class="flex-wrapper">
+
+    <div class="half-page-width">
+      <div class="-claim">
+        <span class="-upper">{{s1TitleUpper}}</span>
+        <span class="-lower">{{s1TitleLower}}</span>
+      </div>
+      <div class="-description">
+        web application created for <span style="font-weight: 600; color: #f7b000">class purposes.</span> It concerns interactions between computers and humans language. NLP connects toegether <span style="font-weight: 600; color: #f7b000">linguisticts, computer
+        science</span> and <span style="font-weight: 600; color: #f7b000">artificial intelligence</span> embedded in the <span style="font-weight: 600; color: #f7b000">world of movies.</span>
+      </div>
+      <img src="../assets/padv2.svg" class="-img-between-sections">
+    </div>
+    <div class="half-page-width">
+      <img src="../assets/guy2.svg" class="-img">
+    </div>
+  </div>
+
+
+</div>
+
+<div class="section2" >
+  <div class="-background">
+    <div class="-flex">
+      <div class="-flex-column">
+        <span class="-title-upper">{{s2upperTitle}}</span>
+        <span class="-title-lower" [routerLink]="['/register']">{{s2lowerTitle}}</span>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="section3">
+    <div class="-title">Everything <span style="color: #CF264D">entertainment!</span></div>
+  <div class="flex-box">
+
+
+  <div class="-width-50-flex" >
+  <div class="content-text">
+    <div class="sample-active" (click)="changeText(1)"><span id="1" class="span-inactive">01.</span>Reviews processing</div>
+    <div class="sample" (click)="changeText(2)"><span id="2" class="span-inactive">02.</span>Movie ratings</div>
+    <div class="sample" (click)="changeText(3)"><span id="3" class="span-inactive">03.</span>Linear classification</div>
+    <div class="sample" (click)="changeText(4)"><span id="4" class="span-inactive">04.</span>Data providing</div>
+    <div class="sample" (click)="changeText(5)"><span id="5" class="span-inactive">05.</span>User friendly</div>
+  </div>
+  </div>
+
+  <div class="-width-50-flex" >
+      <div class="display-content">
+        <img [src]="currentImageSrc" class="-content-img">
+        <div class="-content-description">{{currentDescription}}</div>
+        <div class="nav">
+          <div class="-bar -bar-active" id="bar-1"></div>
+          <div class="-bar -bar-inactive" id="bar-2"></div>
+          <div class="-bar -bar-inactive" id="bar-3"></div>
+          <div class="-bar -bar-inactive" id="bar-4"></div>
+          <div class="-bar -bar-inactive" id="bar-5"></div>
+        </div>
+      </div>
+  </div>
+  </div>
+
+
+</div>
+</body>

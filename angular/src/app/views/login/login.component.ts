@@ -16,7 +16,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   visible = true;
-  username = '';
+  email = '';
   password = '';
   loginButtonDisabled = true;
   allFieldsFilled = false;
@@ -24,9 +24,18 @@ export class LoginComponent implements OnInit {
   mail = faMailBulk;
   faLock = faLock;
   passwordError = '';
-  usernameError = '';
+  emailError = '';
   animationState = 'out';
 
+
+  userEmails = new FormGroup({
+    primaryEmail: new FormControl('', [
+      Validators.required,
+      Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]),
+    password: new FormControl('', [
+      Validators.required,
+    ]),
+  });
 
   constructor(private router: Router) {
   }
@@ -37,29 +46,20 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  public toggleShowDiv(divName: string) {
-    if (divName === 'session') {
-      console.log(this.animationState);
-      this.animationState = this.animationState === 'out' ? 'in' : 'out';
-      console.log(this.animationState);
-      setTimeout(() => this.router.navigateByUrl('/register'),500); // 2500 is millisecond
-    }
-
-  }
-
   public testQuarkusRESTAPI(): void {
-    axios.post('http://localhost:8100/users/login-test', {
-      login: this.username,
+    console.log('x');
+    axios.post('http://localhost:8100/users/login', {
+      login: this.email,
       password: this.password,
     }).then(response => {
       this.appUser = response.data;
       this.handleLogin();
     }).catch(error => {
       console.log(error.response.data);
-      if (error.response.data.includes('username')) {
-        this.usernameError = error.response.data;
+      if (error.response.data.includes('email')) {
+        this.emailError = error.response.data;
       } else {
-        this.usernameError = '';
+        this.emailError = '';
       }
 
       if (error.response.data.includes('password')) {
@@ -73,12 +73,13 @@ export class LoginComponent implements OnInit {
 
 
   public valueHasChanged(): boolean {
-    // if (this.username === '') this.usernameError = '';
-    // if (this.password === '') this.usernameError = '';
-    this.usernameError = '';
+    // if (this.email === '') this.emailError = '';
+    // if (this.password === '') this.emailError = '';
+    this.emailError = '';
     this.passwordError = '';
+    console.log(this.email);
 
-    if ((this.username) && (this.password)) {
+    if ((this.email) && (this.password)) {
       this.loginButtonDisabled = false;
       this.allFieldsFilled = true;
     } else {
@@ -94,4 +95,5 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('token', this.appUser.token);
     this.router.navigateByUrl('/home');
   }
+
 }

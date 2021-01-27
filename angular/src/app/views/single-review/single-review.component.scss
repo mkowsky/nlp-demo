@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;800&display=swap');
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0 0;
+  font-family: Montserrat, sans-serif;
+
+}
+.claim {
+  font-size: 80px;
+  font-weight: 800;
+  opacity: 0.8;
+  color: #f7b000;
+
+}
+
+.subclaim {
+  font-size: 60px;
+  font-weight: 400;
+}
+
+.description {
+  color: black;
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  width: 600px;
+  font-style: italic;
+  opacity: 0.8;
+  align-self: center;
+  text-align: center;
+}
+
+.recension {
+  width: 600px;
+  height: 200px;
+  border-radius: 25px;
+  outline: 10px;
+  padding: 20px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  align-self: center;
+}
+
+.submit-button {
+  background: #f7b000;
+  width: 200px;
+  border-radius: 25px;
+  font-size: 24px;
+  opacity: 0.8;
+  font-weight: 400;
+  align-self: center;
+  outline: none;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-self: center;
+  justify-content: center;
+
+  height: 100%;
+}
+
+.image {
+
+
+}
+
+.back-wrp {
+  align-self: center;
+  width: 600px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #424242;
+  opacity: 0.8;
+  display: flex;
+}
+
+.try-again{
+  width: 400px;
+  height: 60px;
+  align-self: center;
+  background: #FEC556;
+  opacity: 0.9;
+  border-radius: 25px;
+  outline: none;
+  margin-top: 100px;
+}

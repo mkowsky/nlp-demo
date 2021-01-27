@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;800&display=swap');
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: auto;
+  margin: 0 0;
+  font-family: Montserrat, sans-serif;
+}
+
+.claim {
+  font-size: 60px;
+  font-weight: 800;
+  opacity: 0.8;
+  color: #f7b000;
+
+}
+
+.subclaim {
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.description {
+
+  color: black;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  width: 600px;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.-options-card {
+  background: white;
+  width: 300px;
+  height: 200px;
+  box-shadow: 0 0 10px #424242;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: .3s;
+
+}
+
+.-options-card-inactive {
+  background: white;
+  width: 300px;
+  height: 200px;
+  box-shadow: 0 0 10px #424242;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-right: 20px;
+  opacity: 0.7;
+  transform: scale(0.95);
+  transition: .3s;
+  cursor: pointer;
+}
+
+.-game-card {
+  background: white;
+  width: 400px;
+  height: 300px;
+  box-shadow: 0 0 10px #424242;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: .3s;
+
+}
+
+.-game-card-inactive {
+  background: white;
+  width: 400px;
+  height: 300px;
+  box-shadow: 0 0 10px #424242;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-right: 20px;
+  opacity: 0.7;
+  transform: scale(0.95);
+  transition: .3s;
+  cursor: pointer;
+}
+
+:host ::ng-deep .mat-radio-container {
+  height: 30px;
+  width: 30px;
+}
+
+:host ::ng-deep .mat-radio-outer-circle {
+  height: 30px;
+  width: 30px;
+}
+
+:host ::ng-deep .mat-radio-inner-circle {
+  height: 30px;
+  width: 30px;
+}
+
+:host ::ng-deep .mat-radio-button .mat-radio-ripple {
+  height: 20px; /*double of your required circle radius*/
+  width: 20px; /*double of your required circle radius*/
+  left: calc(50% - 10px); /*'10px'-same as your required circle radius*/
+  top: calc(50% - 10px); /*'10px'-same as your required circle radius*/
+}
+
+
+.play-button {
+  width: 300px;
+  background: #f7b000;
+  border-radius: 25px;
+  height: 60px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.full {
+  color: #f7b000;
+}
+
+.half {
+  display: inline-block;
+  overflow: hidden;
+  color:#f7b000;
+}
+
+.review-title {
+  font-size: 32px;
+  font-weight: 400;
+  color: #f7b000;
+}
+
+.review-content {
+  font-size: 18px;
+  width: 1200px;
+  font-style: italic;;
+  font-weight: 100;
+  color: white;
+  text-align: center;
+}
+
+.confirm-button {
+
+}
+.bar-inactive{
+  width: 20px;
+  height: 20px;
+  background: white;
+}
+
+
+
+th {
+  font-size: 24px;
+  font-weight: 600;
+
+
+}
+
+td {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+th, td {
+  padding: 30px;
+  text-align: center;
+  border-bottom: 2px solid black;
+
+}
+
+tr:first-child {
+  background: linear-gradient(90deg, rgba(252, 234, 187, 1) 0%, rgba(244, 187, 65, 1) 15%, rgba(251, 174, 23, 1) 43%, rgba(249, 198, 86, 1) 76%, rgba(248, 181, 0, 1) 100%);
+}
+
+tr:nth-child(odd) {
+
+
+}
+
+tr:nth-child(even) {
+
+}

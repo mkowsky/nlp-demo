@@ -1,0 +1,45 @@
+
+th {
+  font-size: 24px;
+  font-weight: 600;
+
+
+}
+
+td {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+th, td {
+  padding: 30px;
+  text-align: center;
+  border-bottom: 2px solid black;
+
+}
+
+tr:first-child {
+  background: linear-gradient(90deg, rgba(252, 234, 187, 1) 0%, rgba(244, 187, 65, 1) 15%, rgba(251, 174, 23, 1) 43%, rgba(249, 198, 86, 1) 76%, rgba(248, 181, 0, 1) 100%);
+}
+
+tr:nth-child(odd) {
+
+
+}
+
+tr:nth-child(even) {
+
+}
+
+.progress-ring {
+
+}
+
+.progress-ring__circle {
+  transition: 0.35s stroke-dashoffset;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+:host ::ng-deep .custom-spinner circle{
+  stroke: #CF264D;
+}

@@ -1,65 +1,31 @@
 <body id="body">
+<div class="wrapper wrapper-background-image">
+  <fa-icon [icon]="faBars" class="menu-toggle" (click)="logout()" *ngIf="searchWrapperVisible"></fa-icon>
 
 
-<div>
-  <app-header (open)="logout()"></app-header>
-</div>
+
+  <div class="searchContent" *ngIf="searchWrapperVisible" >
+    <div class="claim">NLP-DEMO</div>
+    <div class="subclaim">Begin your journey through our project, and discover all the features.</div>
+    <div class="start-info">Type anything movie-related to start.</div>
+    <input class="search-input" type="search" autocomplete="off" #searchInput [(ngModel)]="movieSearch" [ngModel]="movieSearch" (ngModelChange)="checkIfButtonCanBeActivated()">
+    <button class="search-button" (click)="searchForMovie(movieSearch)" [disabled]="searchButtonDisabled" >SEARCH</button>
+  </div>
 
 
-<div id="searchWrapper" *ngIf="searchWrapperVisible">
-  <div id="title">Search for movie</div>
-  <input #search id="searchInput" type="search" autocomplete="off">
-  <button id="searchButton" (click)="searchForMovie(search.value)">SEARCH</button>
-</div>
-
-<div class="wrapperForGridWrapper" *ngIf="gridVisible">
-  <fa-icon [icon]="faWindowClose" (click)="closeGrid()"></fa-icon>
-  <div class="gridWrapper">
-    <div *ngFor="let movie of movies">
-      <div class="gridItem"><img src="{{movie.Poster}}" class="grid-item-img" (click)="gridItemClicked(movie.imdbID)">
+  <div class="wrapperForGridWrapper" *ngIf="gridVisible">
+    <fa-icon [icon]="faWindowClose" (click)="closeGrid()" class="close-icon"></fa-icon>
+    <div class="gridWrapper">
+      <div *ngFor="let movie of movies">
+        <div class="gridItem"><img src="{{movie.Poster}}" class="grid-item-img"
+                                   (click)="gridItemClicked(movie.imdbID)">
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<mat-spinner *ngIf="isLoading" style="position: absolute; left: 50%; top: 30%;"></mat-spinner>
-
-<div id="movieContent" class="movie-content" *ngIf="movieContentVisible">
-
-  <div class="movie-details">
-    <app-movie-details [movieTitle]="movieDetails.title.title"
-                       [moviePoster]="movieDetails.title.image.url"
-                       [movieProductionDate]="movieDetails.title.year"
-                       [movieDescription]="movieDetails.plotSummary.text"
-                       [movieLength]="movieDetails.title.runningTimeInMinutes +' min'"
-                       [movieType]="movieDetails.genres[0]"
-                       [movieRating]="movieDetails.ratings.rating"></app-movie-details>
-
-    <app-movie-comments [userReviews]="userReviews"
-                        (reviewAdded)="addReviewToArray(review, i)"
-                        (reviewDeleted)="deleteReviewFromArray(review, i )"></app-movie-comments>
-    <div>
-
-      <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title >
-          </mat-panel-title>
-          <mat-panel-description>
-            Write review
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <div class="content">
-          <div id="recensionTitle">Write down your recension</div>
-          <textarea #recension id="recensionInput" style="width: 60%; height: 200px;"></textarea>
-          <div class="recension-bottom-nav">
-            <button (click)="submitRecension(recension.value); recension.value=''" class="recension-button">SUBMIT</button>
-          </div>
-        </div>
-      </mat-expansion-panel>
-    </div>
-
-
-</div>
+  <app-loader *ngIf="isLoading" style="position: absolute; top: 50%; width: 100%"></app-loader>
+  <svg *ngIf="searchWrapperVisible" height="100%" width="100%" style="position: absolute;" id="bg-svg" viewBox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150"><defs><linearGradient id="gradient"><stop offset="5%" stop-color="#fcb90088"></stop><stop offset="95%" stop-color="#fec55688"></stop></linearGradient></defs><path d="M 0,600 C 0,600 0,200 0,200 C 79.96564754379938,182.9886636894538 159.93129508759876,165.9773273789076 235,174 C 310.06870491240124,182.0226726210924 380.24046719340436,215.07935417382342 439,227 C 497.75953280659564,238.92064582617658 545.1068361387838,229.7052559257987 608,214 C 670.8931638612162,198.2947440742013 749.33218825146,176.09962212298177 821,165 C 892.66781174854,153.90037787701823 957.5644108553761,153.89625558227416 1024,152 C 1090.435589144624,150.10374441772584 1158.4101683270353,146.31535554792165 1228,154 C 1297.5898316729647,161.68464445207835 1368.7949158364822,180.8423222260392 1440,200 C 1440,200 1440,600 1440,600 Z" stroke="none" stroke-width="0" fill="url(#gradient)" class="transition-all duration-300 ease-in-out delay-150"></path><defs><linearGradient id="gradient"><stop offset="5%" stop-color="#fcb900ff"></stop><stop offset="95%" stop-color="#fec556ff"></stop></linearGradient></defs><path d="M 0,600 C 0,600 0,400 0,400 C 81.40158021298521,376.64307798007553 162.80316042597042,353.2861559601511 229,341 C 295.1968395740296,328.7138440398489 346.1889385091034,327.498454139471 416,327 C 485.8110614908966,326.501545860529 574.4410855376159,326.72002748196496 647,338 C 719.5589144623841,349.27997251803504 776.0467193404328,371.62143593266916 840,386 C 903.9532806595672,400.37856406733084 975.3720371006527,406.7942287873583 1046,394 C 1116.6279628993473,381.2057712126417 1186.4651322569564,349.2016489178976 1252,347 C 1317.5348677430436,344.7983510821024 1378.767433871522,372.3991755410512 1440,400 C 1440,400 1440,600 1440,600 Z" stroke="none" stroke-width="0" fill="url(#gradient)" class="transition-all duration-300 ease-in-out delay-150"></path></svg>
 </div>
 
 </body>

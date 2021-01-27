@@ -1,0 +1,60 @@
+<body style="height: 200vh;">
+
+
+<div style="height: 100vh; width: 100%; background: white; display: flex; flex-direction: column; justify-content: center; align-items: center">
+
+
+    <div style="font-size: 40px; font-weight: 800; margin-bottom: 20px;">Results</div>
+
+  <table>
+    <tr>
+      <th>Comment</th>
+      <th>Your rating</th>
+      <th>Model rating</th>
+      <th>Model 2 rating</th>
+      <th>Actual rating</th>
+    </tr>
+    <tr *ngFor="let item of resultsArray">
+      <td>{{item.index}}</td>
+      <td>{{item.userRating}}</td>
+      <td>{{item.modelRating}}</td>
+      <td>{{item.mode2Rating}}</td>
+      <td>{{item.actualRating}}</td>
+    </tr>
+  </table>
+
+</div>
+
+<div style="height: 60vh; width: 100%; background: #424242; display: flex; align-items: center; justify-content: center">
+      <div style="height: 400px; width: 350px; background: white; box-shadow: 0 0 20px #424242; padding: 20px; display: flex; flex-direction: column; align-items: center; margin-right: 40px;">
+        <div style="font-size: 30px; font-weight: 600; text-align: center; margin-bottom: 40px;">Your average accuracy</div>
+        <div>
+          <mat-progress-spinner
+            diameter="200"
+            class="custom-spinner"
+            color="primary"
+            mode="determinate"
+            value="66">
+          </mat-progress-spinner>
+        </div>
+        <div style="position: relative; top: -120px; font-weight: 600; font-size: 42px;">32%</div>
+      </div>
+
+  <div style="height: 400px; width: 350px; background: white; box-shadow: 0 0 20px #424242; padding: 20px; display: flex; flex-direction: column; align-items: center">
+    <div style="font-size: 30px; font-weight: 600; text-align: center; margin-bottom: 40px;">Model average accuracy</div>
+    <div>
+      <mat-progress-spinner
+        diameter="200"
+        class="custom-spinner"
+        color="primary"
+        mode="determinate"
+        value="66">
+      </mat-progress-spinner>
+    </div>
+    <div style="position: relative; top: -120px; font-weight: 600; font-size: 42px;">32%</div>
+  </div>
+
+
+</div>
+
+</body>
